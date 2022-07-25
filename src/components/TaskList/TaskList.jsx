@@ -5,10 +5,12 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
+import Divider from "@mui/material/Divider";
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import EditIcon from '@mui/icons-material/Edit';
 
-export default function TaskList({tasks, handleDeleteTask}) {
+export default function TaskList({tasks, handleDeleteTask, handleEditTaskButton}) {
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {tasks.map(task => 
@@ -22,10 +24,19 @@ export default function TaskList({tasks, handleDeleteTask}) {
             primary={task.name} 
             secondary={task.content}
           />
+          <Divider sx={{ height: 28, m: 0.5, bgcolor: "grey.800" }} orientation="vertical" />
+          <ListItemText 
+            primary={task.priority} 
+          />
           <Button
             onClick={() => handleDeleteTask(task._id)}
           >
             <HighlightOffIcon/>
+          </Button>
+          <Button
+            onClick={() => handleEditTaskButton(task._id)}
+          >
+            <EditIcon/>
           </Button>
         </ListItem>
       )}
