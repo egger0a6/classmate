@@ -46,6 +46,18 @@ async function deleteTask(taskId) {
   return res.json()
 }
 
+async function editTask(taskData, taskId) {
+  const res = await fetch(`${BASE_URL}/${taskId}/edit`, {
+    method: "PATCH",
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(taskData)
+  })
+  return res.json()
+}
+
 
 // collection of functions to handle form task validation
 function validateFormCollection() {
@@ -79,5 +91,6 @@ export {
   addTask,
   getProfileData,
   deleteTask,
+  editTask,
   validateFormCollection
 }

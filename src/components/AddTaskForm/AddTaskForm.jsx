@@ -11,28 +11,8 @@ import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 
-const AddTaskForm = ({handleAddTask, formData, handleChange, errors}) => {
+const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkValidForm}) => {
   const priorities = ["1", "2", "3", "4", "5"]
-  const { validateFields, checkValidForm } = validateFormCollection()
-  // const [errors, setErrors] = useState({})
-  // const [formData, setFormData] = useState({
-  //   name: "",
-  //   content: "",
-  //   priority: ""
-  // })
-
-  // const handleChange = (evt) => {
-  //   const { name, value } = evt.target
-  //   setFormData({...formData, [evt.target.name]: evt.target.value})
-  //   validateFields({ [name]: value }, errors, setErrors)
-  // }
-
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    const isValid = Object.values(errors).every((val) => val === "") &&
-      checkValidForm(formData, errors)
-    if (isValid) handleAddTask(formData)
-  }
 
   return (
     <div>
@@ -75,7 +55,6 @@ const AddTaskForm = ({handleAddTask, formData, handleChange, errors}) => {
               error={!!errors["priority"]}
               {...(errors["priority"] && {
                 error: true,
-                helperText: errors["priority"]
               })}
             >
               {priorities.map((priority, idx) => 
@@ -85,12 +64,21 @@ const AddTaskForm = ({handleAddTask, formData, handleChange, errors}) => {
               )}
             </Select>
             </FormControl>
-            <Button 
-              type="submit"
-              disabled={!checkValidForm(formData, errors)}
-            > 
-              Add Task 
-            </Button>
+            {edit ? 
+              <Button 
+                type="submit"
+                disabled={!checkValidForm(formData, errors)}
+              > 
+                Edit 
+              </Button>
+              :
+              <Button 
+                type="submit"
+                disabled={!checkValidForm(formData, errors)}
+              > 
+                Add Task 
+              </Button>
+            }
           </form>
         </Paper>
       </Box>

@@ -6,14 +6,17 @@ import AddTaskForm from '../../components/AddTaskForm/AddTaskForm'
 import TaskList from '../../components/TaskList/TaskList'
 import { validateFormCollection } from "../../services/profileService"
 
-const Landing = ({ 
+const Home = ({ 
   user, 
   tasks, 
   handleAddTask, 
-  handleDeleteTask
+  handleDeleteTask,
+  handleEditTask
 }) => {
 
-  const { validateFields } = validateFormCollection()
+  const [edit, setEdit] = useState(false)
+  const [editId, setEditId] = useState("")
+  const { validateFields, checkValidForm } = validateFormCollection()
   const [errors, setErrors] = useState({})
   const [formData, setFormData] = useState({
     name: "",
@@ -27,10 +30,28 @@ const Landing = ({
     validateFields({ [name]: value }, errors, setErrors)
   }
 
-  const handleEditTask = (taskId) => {
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    const isValid = Object.values(errors).every((val) => val === "") &&
+      checkValidForm(formData, errors)
+    if (isValid) {
+      if (edit) {
+        handleEditTask(formData, editId)
+        setEdit(false)
+        setFormData({name: "", content: "", priority: ""})
+        evt.target.reset()
+      }
+      else {
+        handleAddTask(formData)
+      }
+    }
+  }
+
+  const handleEditTaskButton = (taskId) => {
+    setEditId(taskId)
+    setEdit(true)
     let tempTasks = tasks.filter(task => task._id === taskId)
     let tempTask = tempTasks[0]
-    console.log(tempTask)
     setFormData({
       name: tempTask.name,
       content: tempTask.content,
@@ -44,17 +65,19 @@ const Landing = ({
       <AddTaskForm 
         formData={formData}
         errors={errors}
+        edit={edit}
         handleChange={handleChange}
-        handleAddTask={handleAddTask}
+        handleSubmit={handleSubmit}
+        checkValidForm={checkValidForm}
       />
       <TaskList 
         tasks={tasks} 
         handleDeleteTask={handleDeleteTask}
-        handleEditTask={handleEditTask}
+        handleEditTaskButton={handleEditTaskButton}
       />
     </main>
 
   )
 }
 
-export default Landing
+export default Home

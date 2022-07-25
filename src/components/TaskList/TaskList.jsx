@@ -10,7 +10,7 @@ import AssignmentIcon from '@mui/icons-material/Assignment';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
 
-export default function TaskList({tasks, handleDeleteTask, handleEditTask}) {
+export default function TaskList({tasks, handleDeleteTask, handleEditTaskButton}) {
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {tasks.map(task => 
@@ -34,7 +34,7 @@ export default function TaskList({tasks, handleDeleteTask, handleEditTask}) {
             <HighlightOffIcon/>
           </Button>
           <Button
-            onClick={() => handleEditTask(task._id)}
+            onClick={() => handleEditTaskButton(task._id)}
           >
             <EditIcon/>
           </Button>
