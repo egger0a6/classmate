@@ -36,6 +36,11 @@ const App = () => {
     setTasks([...updatedProfile.tasks])
   }
 
+  const handleDeleteTask = async (taskId) => {
+    const deletedTask = await profileService.deleteTask(taskId)
+    setTasks(tasks.filter(task => task._id !== deletedTask._id))
+  }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -47,6 +52,7 @@ const App = () => {
               user={user}
               tasks={tasks}
               handleAddTask={handleAddTask}
+              handleDeleteTask={handleDeleteTask}
             />
           } 
         />

@@ -36,6 +36,17 @@ async function getProfileData() {
   return res.json()
 }
 
+async function deleteTask(taskId) {
+  const res = await fetch(`${BASE_URL}/${taskId}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
+  return res.json()
+}
+
+
 // collection of functions to handle form task validation
 function validateFormCollection() {
   function validateFields(formData, errors, setErrors) {
@@ -67,5 +78,6 @@ export {
   addPhoto,
   addTask,
   getProfileData,
+  deleteTask,
   validateFormCollection
 }
