@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { validateFormCollection } from "../../services/profileService"
 
 // MUI
@@ -11,21 +11,21 @@ import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 
-const AddTaskForm = ({handleAddTask}) => {
+const AddTaskForm = ({handleAddTask, formData, handleChange, errors}) => {
   const priorities = ["1", "2", "3", "4", "5"]
   const { validateFields, checkValidForm } = validateFormCollection()
-  const [errors, setErrors] = useState({})
-  const [formData, setFormData] = useState({
-    name: "",
-    content: "",
-    priority: ""
-  })
+  // const [errors, setErrors] = useState({})
+  // const [formData, setFormData] = useState({
+  //   name: "",
+  //   content: "",
+  //   priority: ""
+  // })
 
-  const handleChange = (evt) => {
-    const { name, value } = evt.target
-    setFormData({...formData, [evt.target.name]: evt.target.value})
-    validateFields({ [name]: value }, errors, setErrors)
-  }
+  // const handleChange = (evt) => {
+  //   const { name, value } = evt.target
+  //   setFormData({...formData, [evt.target.name]: evt.target.value})
+  //   validateFields({ [name]: value }, errors, setErrors)
+  // }
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -57,6 +57,7 @@ const AddTaskForm = ({handleAddTask}) => {
               type="text"
               name="content"
               label="Content"
+              autoComplete="off"
               value={formData.content}
               onChange={handleChange}
             />
