@@ -33,7 +33,7 @@ const App = () => {
 
   const handleAddTask = async (newTaskData) => {
     const updatedProfile = await profileService.addTask(newTaskData)
-    setTasks([...tasks, ...updatedProfile.tasks])
+    setTasks([...updatedProfile.tasks])
   }
 
   return (
