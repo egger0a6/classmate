@@ -4,7 +4,9 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 export default function TaskList({tasks, handleDeleteTask}) {
   return (
@@ -20,6 +22,11 @@ export default function TaskList({tasks, handleDeleteTask}) {
             primary={task.name} 
             secondary={task.content}
           />
+          <Button
+            onClick={() => handleDeleteTask(task._id)}
+          >
+            <HighlightOffIcon/>
+          </Button>
         </ListItem>
       )}
     </List>
