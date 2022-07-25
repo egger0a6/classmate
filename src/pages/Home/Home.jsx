@@ -5,12 +5,12 @@ import { useState } from 'react'
 import AddTaskForm from '../../components/AddTaskForm/AddTaskForm'
 import TaskList from '../../components/TaskList/TaskList'
 
-const Landing = ({ user, handleAddTask }) => {
+const Landing = ({ user, tasks, handleAddTask }) => {
   return (
     <main className={styles.container}>
       <h1>Welcome, {user ? user.name : 'friend'}</h1>
       <AddTaskForm handleAddTask={handleAddTask}/>
-      <TaskList/>
+      <TaskList tasks={tasks}/>
     </main>
 
   )

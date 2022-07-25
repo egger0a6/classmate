@@ -14,10 +14,12 @@ const App = () => {
   const [tasks, setTasks] = useState([])
 
   useEffect(() => {
-    const fetchAllTasks = async () => {
-      const taskData = await profileService
+    const fetchProfileData = async () => {
+      const profileData = await profileService.getProfileData()
+      setTasks([...profileData.tasks])
     }
-  })
+    fetchProfileData()
+  }, [])
 
   const handleLogout = () => {
     authService.logout()
@@ -41,7 +43,11 @@ const App = () => {
         <Route 
           path="/" 
           element={
-            <Home user={user} handleAddTask={handleAddTask}/>
+            <Home 
+              user={user}
+              tasks={tasks}
+              handleAddTask={handleAddTask}
+            />
           } 
         />
         <Route
