@@ -20,4 +20,32 @@ async function addPhoto(photoData, profileId) {
   return await res.json()
 }
 
-export { getAllProfiles, addPhoto }
+async function addTask(taskData) {
+  const res = await fetch(BASE_URL, {
+    method: 'PATCH',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(taskData)
+  })
+  return res.json()
+}
+
+async function getAllTasks() {
+  const res = await fetch(BASE_URL, {
+    method: 'GET',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'
+    },
+  })
+  return res.json()
+}
+
+export { 
+  getAllProfiles, 
+  addPhoto,
+  addTask,
+  getAllTasks
+}
