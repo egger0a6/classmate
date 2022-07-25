@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { validateFormCollection } from "../../services/profileService"
 
 // MUI
 import { Box } from "@mui/system";
@@ -12,6 +13,8 @@ import FormControl from "@mui/material/FormControl";
 
 const AddTaskForm = ({handleAddTask}) => {
   const priorities = ["1", "2", "3", "4", "5"]
+  const { validateFields, checkValidForm } = validateFormCollection()
+  const [errors, setErrors] = useState({})
   const [formData, setFormData] = useState({
     name: "",
     content: "",
@@ -19,12 +22,16 @@ const AddTaskForm = ({handleAddTask}) => {
   })
 
   const handleChange = (evt) => {
+    const { name, value } = evt.target
     setFormData({...formData, [evt.target.name]: evt.target.value})
+    validateFields({ [name]: value }, errors, setErrors)
   }
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleAddTask(formData)
+    const isValid = Object.values(errors).every((val) => val === "") &&
+      checkValidForm(formData, errors)
+    if (isValid) handleAddTask(formData)
   }
 
   return (
@@ -39,6 +46,12 @@ const AddTaskForm = ({handleAddTask}) => {
               autoComplete="off"
               value={formData.name}
               onChange={handleChange}
+              onBlur={handleChange} 
+              error={!!errors["name"]}
+              {...(errors["name"] && {
+                error: true,
+                helperText: errors["name"]
+              })}
             />
             <TextField
               type="text"
@@ -57,6 +70,12 @@ const AddTaskForm = ({handleAddTask}) => {
               label="Priority"
               onChange={handleChange}
               name="priority"
+              onBlur={handleChange} 
+              error={!!errors["priority"]}
+              {...(errors["priority"] && {
+                error: true,
+                helperText: errors["priority"]
+              })}
             >
               {priorities.map((priority, idx) => 
                 <MenuItem value={priority} key={idx} dense>
@@ -65,7 +84,12 @@ const AddTaskForm = ({handleAddTask}) => {
               )}
             </Select>
             </FormControl>
-            <Button type="submit"> Add Task </Button>
+            <Button 
+              type="submit"
+              disabled={!checkValidForm(formData, errors)}
+            > 
+              Add Task 
+            </Button>
           </form>
         </Paper>
       </Box>

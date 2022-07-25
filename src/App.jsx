@@ -33,7 +33,12 @@ const App = () => {
 
   const handleAddTask = async (newTaskData) => {
     const updatedProfile = await profileService.addTask(newTaskData)
-    setTasks([...tasks, ...updatedProfile.tasks])
+    setTasks([...updatedProfile.tasks])
+  }
+
+  const handleDeleteTask = async (taskId) => {
+    const updatedProfile = await profileService.deleteTask(taskId)
+    setTasks(updatedProfile.tasks)
   }
 
   return (
@@ -47,6 +52,7 @@ const App = () => {
               user={user}
               tasks={tasks}
               handleAddTask={handleAddTask}
+              handleDeleteTask={handleDeleteTask}
             />
           } 
         />
