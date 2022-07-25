@@ -37,8 +37,8 @@ const App = () => {
   }
 
   const handleDeleteTask = async (taskId) => {
-    const deletedTask = await profileService.deleteTask(taskId)
-    setTasks(tasks.filter(task => task._id !== deletedTask._id))
+    const updatedProfile = await profileService.deleteTask(taskId)
+    setTasks(updatedProfile.tasks)
   }
 
   return (
