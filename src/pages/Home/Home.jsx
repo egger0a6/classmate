@@ -8,6 +8,7 @@ import Login from '../../pages/Login/Login'
 import AddTaskForm from '../../components/AddTaskForm/AddTaskForm'
 import TaskList from '../../components/TaskList/TaskList'
 import DeleteAllDialog from "../../components/Home/DeleteAllDialog"
+import ReactYouTube from '../../components/ReactYouTube/ReactYouTube'
 
 const Home = ({ 
   user, 
@@ -91,6 +92,7 @@ const Home = ({
             handleEditTaskButton={handleEditTaskButton}
           />
           <DeleteAllDialog handleDeleteAll={handleDeleteAll}/>
+          <ReactYouTube videoId={"jfKfPfyJRdk"}/>
         </main>
         :
         <main>
