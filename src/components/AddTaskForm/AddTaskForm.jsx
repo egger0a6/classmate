@@ -9,8 +9,6 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-import "./AddTaskForm.css"
-
 const theme = createTheme({
   palette: {
     action: {
@@ -20,7 +18,7 @@ const theme = createTheme({
   }
 });
 
-const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkValidForm}) => {
+const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkValidForm, handleClearForm}) => {
   const priorities = ["1", "2", "3", "4", "5"]
 
   return (
@@ -89,6 +87,12 @@ const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkV
                 Add Task 
               </Button>
             }
+            <Button
+              onClick={handleClearForm}
+              disabled={!(formData.name || formData.priority || formData.content)}
+            >
+              Clear
+            </Button>
           </form>
         </Paper>
       </Box>
