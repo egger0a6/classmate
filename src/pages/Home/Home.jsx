@@ -25,7 +25,7 @@ const Home = ({
   handleEditTask,
   handleDeleteAll,
   handleSignupOrLogin,
-  handleLogOut
+  handleLogout
 }) => {
 
   const [edit, setEdit] = useState(false)
@@ -96,7 +96,7 @@ const Home = ({
                 Welcome, {user ? user.name : 'friend'}
               </Typography>
               <Tooltip title="Logout">
-                <Button onClick={handleLogOut}>
+                <Button onClick={handleLogout}>
                   <LogoutIcon sx={{color: "white"}}/>
                 </Button>
               </Tooltip>

@@ -52,7 +52,7 @@ export default function TaskList({
             primary={task.name} 
             secondary={task.content}
           />
-          <Divider sx={{ height: 28, m: 0.5, bgcolor: "grey.800" }} orientation="vertical" />
+          <Divider sx={{ height: 28, m: 0.5, bgcolor: "grey.100" }} orientation="vertical" />
           <ListItemText 
             primary={task.priority} 
           />
