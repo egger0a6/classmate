@@ -17,7 +17,7 @@ const darkTheme = createTheme({
       secondary: "#ffffff"
     },
     background: {
-      paper: "#323e4c"
+      paper: "rgba(8,81,156, .75)"
     },
     action: {
       disabledBackground: "rgba(211, 47, 47, 0.3)",
@@ -29,7 +29,7 @@ const darkTheme = createTheme({
       'Merriweather',
       'sans-serif',
     ].join(','),
-  }
+  },
 });
 
 const App = () => {

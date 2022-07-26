@@ -1,3 +1,4 @@
+import { Box } from '@mui/material';
 import React from 'react';
 import YouTube from 'react-youtube';
 
@@ -18,9 +19,11 @@ export default function ReactYouTube({videoId})
   }
 
   return (
-    <YouTube 
-      videoId={videoId} 
-      opts={opts} 
-      onReady={onReady} />
+    <Box sx={{height: "100vh"}}>
+      <YouTube 
+        videoId={videoId} 
+        opts={opts} 
+        onReady={onReady} />
+    </Box>
   );
 }

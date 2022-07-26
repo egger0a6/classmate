@@ -10,6 +10,7 @@ import { Typography } from "@mui/material";
 import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
 import LogoutIcon from '@mui/icons-material/Logout';
+import Box from "@mui/material/Box";
 
 // Components
 import AddTaskForm from '../../components/AddTaskForm/AddTaskForm'
@@ -80,18 +81,18 @@ const Home = ({
   }
 
   return (
-    <>
+    <Box>
       {user ? 
-        <Grid container sx={{
-          width: '100%', 
-          bgcolor: 'background.paper', 
-          color: 'primary'
+        <Grid container spacing={4} sx={{
+          mt: 5,
+          // bgcolor: 'background.paper', 
+          // color: 'primary'
         }}>
-          <Grid item>
-            <main className={styles.container}>
+          <Grid item md={12} className={styles.header} sx={{mb: 4}}>
+            <Box className={styles.header}>
               <Typography 
                 variant='h1' 
-                sx={{color: "white", fontStyle: "italic", fontWeight: 700}}
+                sx={{color: "black", fontStyle: "italic", fontWeight: 700}}
               >
                 Welcome, {user ? user.name : 'friend'}
               </Typography>
@@ -100,7 +101,9 @@ const Home = ({
                   <LogoutIcon sx={{color: "white"}}/>
                 </Button>
               </Tooltip>
-              <Quote />
+            </Box>
+          </Grid>
+          <Grid item md={3}>
               <AddTaskForm 
                 formData={formData}
                 errors={errors}
@@ -110,14 +113,22 @@ const Home = ({
                 checkValidForm={checkValidForm}
                 handleClearForm={handleClearForm}
               />
+          </Grid>
+          <Grid item md={6}>
+              <DeleteAllDialog handleDeleteAll={handleDeleteAll}/>
               <TaskList 
                 tasks={tasks} 
                 handleDeleteTask={handleDeleteTask}
                 handleEditTaskButton={handleEditTaskButton}
               />
-              <DeleteAllDialog handleDeleteAll={handleDeleteAll}/>
+          </Grid>
+          <Grid item container md={3}>
+            <Grid item md={12} sx={{height:"33vh"}}>
               <ReactYouTube videoId={"jfKfPfyJRdk"}/>
-            </main>
+            </Grid>
+            <Grid item md={12} sx={{height: "33vh"}}>
+              <Quote/>
+            </Grid>
           </Grid>
         </Grid>
         :
@@ -125,7 +136,7 @@ const Home = ({
           <Login handleSignupOrLogin={handleSignupOrLogin}/>
         </main>
       }
-    </>
+    </Box>
   )
 }
 
