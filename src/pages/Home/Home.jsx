@@ -1,10 +1,11 @@
 import styles from './Home.module.css'
 import { useState } from 'react'
+import { validateFormCollection } from "../../services/profileService"
 
 // Components
 import AddTaskForm from '../../components/AddTaskForm/AddTaskForm'
 import TaskList from '../../components/TaskList/TaskList'
-import { validateFormCollection } from "../../services/profileService"
+import DeleteAllDialog from "../../components/Home/DeleteAllDialog"
 
 // MUI
 import Button from '@mui/material/Button';
@@ -86,13 +87,7 @@ const Home = ({
         handleDeleteTask={handleDeleteTask}
         handleEditTaskButton={handleEditTaskButton}
       />
-      <Button
-        variant="text"
-        onClick={handleDeleteAll}
-        color="error"
-      >
-        DELETE ALL TASKS
-      </Button>
+      <DeleteAllDialog handleDeleteAll={handleDeleteAll}/>
     </main>
 
   )

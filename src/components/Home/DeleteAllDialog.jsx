@@ -3,9 +3,8 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-export default function DeleteDialog({task, handleDeleteTask}) {
+export default function DeleteAllDialog({handleDeleteAll}) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -18,15 +17,17 @@ export default function DeleteDialog({task, handleDeleteTask}) {
 
   const handleDeleteButton = () => {
     handleClose()
-    handleDeleteTask(task._id)
+    handleDeleteAll()
   }
 
   return (
     <div>
       <Button
+        variant="text"
         onClick={handleClickOpen}
+        color="error"
       >
-        <HighlightOffIcon/>
+        DELETE ALL TASKS
       </Button>
       <Dialog
         open={open}
@@ -35,7 +36,7 @@ export default function DeleteDialog({task, handleDeleteTask}) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          Delete Task?
+          DELETE ALL TASKS?
         </DialogTitle>
         <DialogActions sx={{justifyContent: "center"}}>
           <Button 
@@ -43,7 +44,7 @@ export default function DeleteDialog({task, handleDeleteTask}) {
             variant="outlined"
             color="error"
           >
-            Delete
+            DELETE ALL
           </Button>
         </DialogActions>
       </Dialog>
