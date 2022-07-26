@@ -19,13 +19,31 @@ export default function TaskList({
   handleDeleteTask, 
   handleEditTaskButton}) 
 {
+  const prioColors = [
+    "", 
+    "#f94144", 
+    "#f8961e", 
+    "#f9c74f", 
+    "#43aa8b", 
+    "#118ab2"
+  ]
+
+  const avatarColors = [
+    "", 
+    "rgba(249, 65, 68, 0.2)", 
+    "rgba(248, 150, 30, 0.2)", 
+    "rgba(249, 199, 79, 0.2)", 
+    "rgba(67, 170, 139, 0.2)", 
+    "rgba(17, 138, 178, 0.2)"
+  ]
+
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {tasks.map(task => 
         <ListItem key={task._id}>
           <ListItemAvatar>
-            <Avatar>
-              <AssignmentIcon />
+            <Avatar sx={{background:`${avatarColors[task.priority]}`}}>
+              <AssignmentIcon sx={{fill:`${prioColors[task.priority]}`}}/>
             </Avatar>
           </ListItemAvatar>
           <ListItemText 

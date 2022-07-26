@@ -9,8 +9,8 @@ export default function ReactYouTube({videoId})
   }
 
   const opts = {
-    height: '390',
-    width: '640',
+    height: '276',
+    width: '453',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
       autoplay: 1,

@@ -28,7 +28,7 @@ export default function DeleteDialog({task, handleDeleteTask}) {
         <Button
           onClick={handleClickOpen}
         >
-          <HighlightOffIcon/>
+          <HighlightOffIcon sx={{color: "rgba(211, 47, 47, 0.7)"}}/>
         </Button>
       </Tooltip>
       <Dialog
