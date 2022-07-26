@@ -12,7 +12,11 @@ import EditIcon from '@mui/icons-material/Edit';
 // Components
 import DeleteDialog from './DeleteDialog';
 
-export default function TaskList({tasks, handleDeleteTask, handleEditTaskButton}) {
+export default function TaskList({
+  tasks, 
+  handleDeleteTask, 
+  handleEditTaskButton}) 
+{
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {tasks.map(task => 

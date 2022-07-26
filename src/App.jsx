@@ -48,7 +48,7 @@ const App = () => {
 
   const handleDeleteAll = async () => {
     const updatedProfile = await profileService.deleteAllTasks()
-    setTasks([updatedProfile.tasks])
+    setTasks([])
   }
 
   return (
@@ -64,6 +64,7 @@ const App = () => {
               handleAddTask={handleAddTask}
               handleDeleteTask={handleDeleteTask}
               handleEditTask={handleEditTask}
+              handleDeleteAll={handleDeleteAll}
             />
           } 
         />

@@ -18,7 +18,15 @@ const theme = createTheme({
   }
 });
 
-const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkValidForm, handleClearForm}) => {
+const AddTaskForm = ({
+  formData, 
+  handleChange, 
+  errors, 
+  edit, 
+  handleSubmit, 
+  checkValidForm, 
+  handleClearForm
+}) => {
   const priorities = ["1", "2", "3", "4", "5"]
 
   return (

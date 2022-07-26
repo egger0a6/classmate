@@ -6,12 +6,16 @@ import AddTaskForm from '../../components/AddTaskForm/AddTaskForm'
 import TaskList from '../../components/TaskList/TaskList'
 import { validateFormCollection } from "../../services/profileService"
 
+// MUI
+import Button from '@mui/material/Button';
+
 const Home = ({ 
   user, 
   tasks, 
   handleAddTask, 
   handleDeleteTask,
-  handleEditTask
+  handleEditTask,
+  handleDeleteAll
 }) => {
 
   const [edit, setEdit] = useState(false)
@@ -82,6 +86,13 @@ const Home = ({
         handleDeleteTask={handleDeleteTask}
         handleEditTaskButton={handleEditTaskButton}
       />
+      <Button
+        variant="text"
+        onClick={handleDeleteAll}
+        color="error"
+      >
+        DELETE ALL TASKS
+      </Button>
     </main>
 
   )
