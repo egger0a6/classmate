@@ -3,7 +3,7 @@ import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
 
 export default function Timer() {
-  const minutesDuration = .1
+  const minutesDuration = 60
   const timerDuration = minutesDuration * 60
   const [secondsLeft, setSecondsLeft] = useState(timerDuration);
   const [timer, setTimer] = useState();
@@ -36,7 +36,7 @@ export default function Timer() {
   return (
     <div className="Timer">
       <button onClick={start}>{buttonText}</button>
-      <div>{secondsLeft} seconds left | <CircularProgress variant="determinate" value={secondsLeft} /></div>
+      <div>{(secondsLeft / 60).toFixed(2)} Minutes Left | <CircularProgress variant="determinate" value={secondsLeft} /></div>
     </div>
   );
 }
