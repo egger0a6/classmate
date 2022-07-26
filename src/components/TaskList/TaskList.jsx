@@ -56,6 +56,7 @@ export default function TaskList({
           <ListItemText 
             primary={task.priority} 
           />
+          <Timer sx={{}}/>
           <DeleteDialog 
             task={task} 
             handleDeleteTask={handleDeleteTask}
