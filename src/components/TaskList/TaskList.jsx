@@ -1,4 +1,6 @@
 import * as React from 'react';
+
+// MUI Components
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
@@ -19,20 +21,38 @@ export default function TaskList({
   handleDeleteTask, 
   handleEditTaskButton}) 
 {
+  const prioColors = [
+    "", 
+    "#f94144", 
+    "#f8961e", 
+    "#f9c74f", 
+    "#43aa8b", 
+    "#118ab2"
+  ]
+
+  const avatarColors = [
+    "", 
+    "rgba(249, 65, 68, 0.25)", 
+    "rgba(248, 150, 30, 0.25)", 
+    "rgba(249, 199, 79, 0.25)", 
+    "rgba(67, 170, 139, 0.25)", 
+    "rgba(17, 138, 178, 0.25)"
+  ]
+
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', }}>
       {tasks.map(task => 
         <ListItem key={task._id}>
           <ListItemAvatar>
-            <Avatar>
-              <AssignmentIcon />
+            <Avatar sx={{background:`${avatarColors[task.priority]}`}}>
+              <AssignmentIcon sx={{fill:`${prioColors[task.priority]}`}}/>
             </Avatar>
           </ListItemAvatar>
           <ListItemText 
             primary={task.name} 
             secondary={task.content}
           />
-          <Divider sx={{ height: 28, m: 0.5, bgcolor: "grey.800" }} orientation="vertical" />
+          <Divider sx={{ height: 28, m: 0.5, bgcolor: "grey.100" }} orientation="vertical" />
           <ListItemText 
             primary={task.priority} 
           />
