@@ -7,6 +7,26 @@ import Home from './pages/Home/Home'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import * as profileService from "./services/profileService"
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const darkTheme = createTheme({
+  palette: {
+
+    mode: 'dark',
+    text: {
+      primary: "#ffffff",
+      secondary: "#ffffff"
+    },
+    background: {
+      paper: "#323e4c"
+    },
+    action: {
+      disabledBackground: "rgba(211, 47, 47, 0.3)",
+      disabled: 'rgba(211, 47, 47, 0.3)'
+    }
+
+  },
+});
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -55,6 +75,7 @@ const App = () => {
 
   return (
     <>
+  <ThemeProvider theme={darkTheme}>
       <NavBar user={user} handleLogout={handleLogout} />
       <Routes>
         <Route 
@@ -90,6 +111,7 @@ const App = () => {
           }
         />
       </Routes>
+      </ThemeProvider>
     </>
   )
 }

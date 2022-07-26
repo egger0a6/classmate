@@ -30,7 +30,6 @@ const AddTaskForm = ({
   const priorities = ["1", "2", "3", "4", "5"]
 
   return (
-    <ThemeProvider theme={theme}>
       <Box>
         <Paper>
           <form onSubmit={handleSubmit}>
@@ -104,7 +103,6 @@ const AddTaskForm = ({
           </form>
         </Paper>
       </Box>
-    </ThemeProvider>
   );
 }
 
