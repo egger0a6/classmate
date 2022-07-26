@@ -38,7 +38,7 @@ export default function TaskList({
   ]
 
   return (
-    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+    <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper', }}>
       {tasks.map(task => 
         <ListItem key={task._id}>
           <ListItemAvatar>

@@ -3,7 +3,8 @@ import { useState } from 'react'
 import { validateFormCollection } from "../../services/profileService"
 import Quote from '../../components/Quote/Quote'
 import Login from '../../pages/Login/Login'
-
+import Grid from "@mui/material/Grid"
+import { Typography } from "@mui/material";
 // Components
 import AddTaskForm from '../../components/AddTaskForm/AddTaskForm'
 import TaskList from '../../components/TaskList/TaskList'
@@ -74,8 +75,10 @@ const Home = ({
   return (
     <>
       {user ? 
+      <Grid container sx={{ width: '100%', bgcolor: 'background.paper', color: 'primary',}}>
+        <Grid item>
         <main className={styles.container}>
-          <h1>Welcome, {user ? user.name : 'friend'}</h1>
+          <Typography variant='h1' sx={{color: "#67c1f5"}}>Welcome, {user ? user.name : 'friend'}</Typography>
           <Quote />
           <AddTaskForm 
             formData={formData}
@@ -94,6 +97,8 @@ const Home = ({
           <DeleteAllDialog handleDeleteAll={handleDeleteAll}/>
           <ReactYouTube videoId={"jfKfPfyJRdk"}/>
         </main>
+      </Grid>
+      </Grid>
         :
         <main>
           <Login handleSignupOrLogin={handleSignupOrLogin}/>
