@@ -81,15 +81,15 @@ const Home = ({
   }
 
   return (
-    <>
+    <Box>
       {user ? 
         <Grid container spacing={4} sx={{
           mt: 5,
           // bgcolor: 'background.paper', 
           // color: 'primary'
         }}>
-          <Grid item md={12} sx={{mb: 4}}>
-            <Box>
+          <Grid item md={12} className={styles.header} sx={{mb: 4}}>
+            <Box className={styles.header}>
               <Typography 
                 variant='h1' 
                 sx={{color: "black", fontStyle: "italic", fontWeight: 700}}
@@ -136,7 +136,7 @@ const Home = ({
           <Login handleSignupOrLogin={handleSignupOrLogin}/>
         </main>
       }
-    </>
+    </Box>
   )
 }
 

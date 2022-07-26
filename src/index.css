@@ -63,7 +63,8 @@ code {
 }
 
 html {
-  background: url("../public/images/trianglify.png") no-repeat center center fixed; 
+  overflow: hidden;
+  background: url("../public/images/trianglify-2.png") no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
