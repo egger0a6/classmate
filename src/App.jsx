@@ -11,7 +11,6 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const darkTheme = createTheme({
   palette: {
-
     mode: 'dark',
     text: {
       primary: "#ffffff",
@@ -24,8 +23,13 @@ const darkTheme = createTheme({
       disabledBackground: "rgba(211, 47, 47, 0.3)",
       disabled: 'rgba(211, 47, 47, 0.3)'
     }
-
   },
+  typography: {
+    fontFamily: [
+      'Merriweather',
+      'sans-serif',
+    ].join(','),
+  }
 });
 
 const App = () => {
