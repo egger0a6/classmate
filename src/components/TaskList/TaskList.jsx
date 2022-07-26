@@ -7,10 +7,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Divider from "@mui/material/Divider";
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
+import Tooltip from '@mui/material/Tooltip';
 
-export default function TaskList({tasks, handleDeleteTask, handleEditTaskButton}) {
+// Components
+import DeleteDialog from './DeleteDialog';
+
+export default function TaskList({
+  tasks, 
+  handleDeleteTask, 
+  handleEditTaskButton}) 
+{
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
       {tasks.map(task => 
@@ -28,16 +35,17 @@ export default function TaskList({tasks, handleDeleteTask, handleEditTaskButton}
           <ListItemText 
             primary={task.priority} 
           />
-          <Button
-            onClick={() => handleDeleteTask(task._id)}
-          >
-            <HighlightOffIcon/>
-          </Button>
-          <Button
-            onClick={() => handleEditTaskButton(task._id)}
-          >
-            <EditIcon/>
-          </Button>
+          <DeleteDialog 
+            task={task} 
+            handleDeleteTask={handleDeleteTask}
+          />
+          <Tooltip title="Edit">
+            <Button
+              onClick={() => handleEditTaskButton(task._id)}
+            >
+              <EditIcon/>
+            </Button>
+          </Tooltip>
         </ListItem>
       )}
     </List>
