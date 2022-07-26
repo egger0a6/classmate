@@ -1,6 +1,3 @@
-import { useState, useEffect } from "react";
-import { validateFormCollection } from "../../services/profileService"
-
 // MUI
 import { Box } from "@mui/system";
 import { Paper } from "@mui/material";
@@ -10,12 +7,30 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkValidForm}) => {
+const theme = createTheme({
+  palette: {
+    action: {
+      disabledBackground: "rgba(211, 47, 47, 0.3)",
+      disabled: 'rgba(211, 47, 47, 0.3)'
+    }
+  }
+});
+
+const AddTaskForm = ({
+  formData, 
+  handleChange, 
+  errors, 
+  edit, 
+  handleSubmit, 
+  checkValidForm, 
+  handleClearForm
+}) => {
   const priorities = ["1", "2", "3", "4", "5"]
 
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Box>
         <Paper>
           <form onSubmit={handleSubmit}>
@@ -26,17 +41,17 @@ const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkV
               autoComplete="off"
               value={formData.name}
               onChange={handleChange}
-              onBlur={handleChange} 
-              error={!!errors["name"]}
-              {...(errors["name"] && {
-                error: true,
-                helperText: errors["name"]
-              })}
+              // onBlur={handleChange} 
+              // error={!!errors["name"]}
+              // {...(errors["name"] && {
+              //   error: true,
+              //   helperText: errors["name"]
+              // })}
             />
             <TextField
               type="text"
               name="content"
-              label="Content"
+              label="Notes"
               autoComplete="off"
               value={formData.content}
               onChange={handleChange}
@@ -51,11 +66,11 @@ const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkV
               label="Priority"
               onChange={handleChange}
               name="priority"
-              onBlur={handleChange} 
-              error={!!errors["priority"]}
-              {...(errors["priority"] && {
-                error: true,
-              })}
+              // onBlur={handleChange} 
+              // error={!!errors["priority"]}
+              // {...(errors["priority"] && {
+              //   error: true,
+              // })}
             >
               {priorities.map((priority, idx) => 
                 <MenuItem value={priority} key={idx} dense>
@@ -74,15 +89,22 @@ const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkV
               :
               <Button 
                 type="submit"
+                variant="outlined"
                 disabled={!checkValidForm(formData, errors)}
               > 
                 Add Task 
               </Button>
             }
+            <Button
+              onClick={handleClearForm}
+              disabled={!(formData.name || formData.priority || formData.content)}
+            >
+              Clear
+            </Button>
           </form>
         </Paper>
       </Box>
-    </div>
+    </ThemeProvider>
   );
 }
 
