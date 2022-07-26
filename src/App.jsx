@@ -14,11 +14,13 @@ const App = () => {
   const [tasks, setTasks] = useState([])
 
   useEffect(() => {
-    const fetchProfileData = async () => {
-      const profileData = await profileService.getProfileData()
-      setTasks([...profileData.tasks])
+    if (user) {
+      const fetchProfileData = async () => {
+        const profileData = await profileService.getProfileData()
+        setTasks([...profileData.tasks])
+      }
+      fetchProfileData()
     }
-    fetchProfileData()
   }, [])
 
   const handleLogout = () => {
@@ -65,6 +67,7 @@ const App = () => {
               handleDeleteTask={handleDeleteTask}
               handleEditTask={handleEditTask}
               handleDeleteAll={handleDeleteAll}
+              handleSignupOrLogin={handleSignupOrLogin}
             />
           } 
         />
