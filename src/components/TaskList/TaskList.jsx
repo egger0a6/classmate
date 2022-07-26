@@ -7,8 +7,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Divider from "@mui/material/Divider";
 import AssignmentIcon from '@mui/icons-material/Assignment';
-import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
+
+// Components
+import DeleteDialog from './DeleteDialog';
 
 export default function TaskList({tasks, handleDeleteTask, handleEditTaskButton}) {
   return (
@@ -28,11 +30,10 @@ export default function TaskList({tasks, handleDeleteTask, handleEditTaskButton}
           <ListItemText 
             primary={task.priority} 
           />
-          <Button
-            onClick={() => handleDeleteTask(task._id)}
-          >
-            <HighlightOffIcon/>
-          </Button>
+          <DeleteDialog 
+            task={task} 
+            handleDeleteTask={handleDeleteTask}
+          />
           <Button
             onClick={() => handleEditTaskButton(task._id)}
           >

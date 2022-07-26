@@ -26,17 +26,17 @@ const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkV
               autoComplete="off"
               value={formData.name}
               onChange={handleChange}
-              onBlur={handleChange} 
-              error={!!errors["name"]}
-              {...(errors["name"] && {
-                error: true,
-                helperText: errors["name"]
-              })}
+              // onBlur={handleChange} 
+              // error={!!errors["name"]}
+              // {...(errors["name"] && {
+              //   error: true,
+              //   helperText: errors["name"]
+              // })}
             />
             <TextField
               type="text"
               name="content"
-              label="Content"
+              label="Notes"
               autoComplete="off"
               value={formData.content}
               onChange={handleChange}
@@ -51,7 +51,7 @@ const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkV
               label="Priority"
               onChange={handleChange}
               name="priority"
-              onBlur={handleChange} 
+              // onBlur={handleChange} 
               error={!!errors["priority"]}
               {...(errors["priority"] && {
                 error: true,

@@ -43,6 +43,8 @@ const Home = ({
       }
       else {
         handleAddTask(formData)
+        setFormData({name: "", content: "", priority: ""})
+        evt.target.reset()
       }
     }
   }
