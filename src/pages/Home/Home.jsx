@@ -7,9 +7,6 @@ import AddTaskForm from '../../components/AddTaskForm/AddTaskForm'
 import TaskList from '../../components/TaskList/TaskList'
 import DeleteAllDialog from "../../components/Home/DeleteAllDialog"
 
-// MUI
-import Button from '@mui/material/Button';
-
 const Home = ({ 
   user, 
   tasks, 
@@ -89,7 +86,6 @@ const Home = ({
       />
       <DeleteAllDialog handleDeleteAll={handleDeleteAll}/>
     </main>
-
   )
 }
 
