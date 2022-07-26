@@ -46,6 +46,11 @@ const App = () => {
     setTasks([...updatedProfile.tasks])
   }
 
+  const handleDeleteAll = async () => {
+    const updatedProfile = await profileService.deleteAllTasks()
+    setTasks([updatedProfile.tasks])
+  }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />

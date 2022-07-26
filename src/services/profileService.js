@@ -58,6 +58,16 @@ async function editTask(taskData, taskId) {
   return res.json()
 }
 
+async function deleteAllTasks() {
+  const res = await fetch(BASE_URL, {
+    method: "DELETE",
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'Content-Type': 'application/json'
+    },
+  })
+  return res.json()
+}
 
 // collection of functions to handle form task validation
 function validateFormCollection() {
@@ -92,5 +102,6 @@ export {
   getProfileData,
   deleteTask,
   editTask,
+  deleteAllTasks,
   validateFormCollection
 }
