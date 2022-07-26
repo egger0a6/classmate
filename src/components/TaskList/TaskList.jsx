@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import Divider from "@mui/material/Divider";
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import EditIcon from '@mui/icons-material/Edit';
+import Tooltip from '@mui/material/Tooltip';
 
 // Components
 import DeleteDialog from './DeleteDialog';
@@ -38,11 +39,13 @@ export default function TaskList({
             task={task} 
             handleDeleteTask={handleDeleteTask}
           />
-          <Button
-            onClick={() => handleEditTaskButton(task._id)}
-          >
-            <EditIcon/>
-          </Button>
+          <Tooltip title="Edit">
+            <Button
+              onClick={() => handleEditTaskButton(task._id)}
+            >
+              <EditIcon/>
+            </Button>
+          </Tooltip>
         </ListItem>
       )}
     </List>

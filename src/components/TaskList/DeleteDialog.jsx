@@ -4,6 +4,7 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import Tooltip from '@mui/material/Tooltip';
 
 export default function DeleteDialog({task, handleDeleteTask}) {
   const [open, setOpen] = React.useState(false);
@@ -23,11 +24,13 @@ export default function DeleteDialog({task, handleDeleteTask}) {
 
   return (
     <div>
-      <Button
-        onClick={handleClickOpen}
-      >
-        <HighlightOffIcon/>
-      </Button>
+      <Tooltip title="Delete">
+        <Button
+          onClick={handleClickOpen}
+        >
+          <HighlightOffIcon/>
+        </Button>
+      </Tooltip>
       <Dialog
         open={open}
         onClose={handleClose}
