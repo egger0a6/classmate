@@ -1,5 +1,6 @@
 import styles from './Home.module.css'
 import { useState } from 'react'
+import Quote from '../../components/Quote/Quote'
 
 // Components
 import AddTaskForm from '../../components/AddTaskForm/AddTaskForm'
@@ -62,6 +63,7 @@ const Home = ({
   return (
     <main className={styles.container}>
       <h1>Welcome, {user ? user.name : 'friend'}</h1>
+      <Quote />
       <AddTaskForm 
         formData={formData}
         errors={errors}

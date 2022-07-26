@@ -9,6 +9,7 @@ import Divider from "@mui/material/Divider";
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import EditIcon from '@mui/icons-material/Edit';
+import Timer from '../Timer/Timer';
 
 export default function TaskList({tasks, handleDeleteTask, handleEditTaskButton}) {
   return (
@@ -38,6 +39,7 @@ export default function TaskList({tasks, handleDeleteTask, handleEditTaskButton}
           >
             <EditIcon/>
           </Button>
+          <Timer />
         </ListItem>
       )}
     </List>

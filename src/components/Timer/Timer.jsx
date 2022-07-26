@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
 
 export default function Timer() {
-  const [secondsLeft, setSecondsLeft] = useState(1 * 60);
+  const [secondsLeft, setSecondsLeft] = useState(.5 * 60);
   const [timer, setTimer] = useState();
+  const [minutesLeft, setMinutesLeft] = useState(1)
 
-  const Timer = () => {
+  const start = () => {
     const timer = setInterval(() => {
       setSecondsLeft((secondsLeft) => secondsLeft - 1);
       if (secondsLeft === 0) {
@@ -25,14 +26,12 @@ export default function Timer() {
   }, [timer]);
 
   return (
-    <div className="App">
-      <h1>Pomodoro Timer</h1>
+    <div className="Timer">
       <button onClick={start}>start</button>
       <div>{secondsLeft} seconds left</div>
     </div>
   );
 }
 
-export default Timer
 
 
