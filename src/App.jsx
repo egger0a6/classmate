@@ -80,7 +80,7 @@ const App = () => {
   return (
     <>
   <ThemeProvider theme={darkTheme}>
-      <NavBar user={user} handleLogout={handleLogout} />
+      
       <Routes>
         <Route 
           path="/" 
@@ -93,6 +93,7 @@ const App = () => {
               handleEditTask={handleEditTask}
               handleDeleteAll={handleDeleteAll}
               handleSignupOrLogin={handleSignupOrLogin}
+              handleLogout={handleLogout}
             />
           } 
         />
