@@ -1,6 +1,3 @@
-import { useState, useEffect } from "react";
-import { validateFormCollection } from "../../services/profileService"
-
 // MUI
 import { Box } from "@mui/system";
 import { Paper } from "@mui/material";
@@ -10,12 +7,24 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+import "./AddTaskForm.css"
+
+const theme = createTheme({
+  palette: {
+    action: {
+      disabledBackground: "rgba(211, 47, 47, 0.3)",
+      disabled: 'rgba(211, 47, 47, 0.3)'
+    }
+  }
+});
 
 const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkValidForm}) => {
   const priorities = ["1", "2", "3", "4", "5"]
 
   return (
-    <div>
+    <ThemeProvider theme={theme}>
       <Box>
         <Paper>
           <form onSubmit={handleSubmit}>
@@ -52,10 +61,10 @@ const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkV
               onChange={handleChange}
               name="priority"
               // onBlur={handleChange} 
-              error={!!errors["priority"]}
-              {...(errors["priority"] && {
-                error: true,
-              })}
+              // error={!!errors["priority"]}
+              // {...(errors["priority"] && {
+              //   error: true,
+              // })}
             >
               {priorities.map((priority, idx) => 
                 <MenuItem value={priority} key={idx} dense>
@@ -74,6 +83,7 @@ const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkV
               :
               <Button 
                 type="submit"
+                variant="outlined"
                 disabled={!checkValidForm(formData, errors)}
               > 
                 Add Task 
@@ -82,7 +92,7 @@ const AddTaskForm = ({formData, handleChange, errors, edit, handleSubmit, checkV
           </form>
         </Paper>
       </Box>
-    </div>
+    </ThemeProvider>
   );
 }
 
