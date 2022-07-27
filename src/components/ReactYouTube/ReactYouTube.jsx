@@ -36,12 +36,16 @@ export default function ReactYouTube({videoId})
       id: "XtDwPLk8EgI"
     },
     {
+      title: "Blade Runner Music Radio", 
+      id: "0YiNACjWW-4"
+    },
+    {
       title: "Classical Music for Reading", 
       id: "mIYzp5rcTvU"
     },
     {
       title: "WOBBLE TIME", 
-      id: "9Ux0eOPanxE"
+      id: "os_yEOfSGJM"
     } 
   ]
 
@@ -61,7 +65,7 @@ export default function ReactYouTube({videoId})
     width: '453',
     playerVars: {
       // https://developers.google.com/youtube/player_parameters
-      autoplay: 1,
+      autoplay: 0,
     },
   }
 
@@ -72,7 +76,7 @@ export default function ReactYouTube({videoId})
           <YouTube 
             videoId={selectData.videoId ? selectData.videoId : videoId} 
             opts={opts} 
-            onReady={onReady} 
+            onStateChange={onReady}
           />
           <FormControl fullWidth sx={{m: 2}}>
             <InputLabel id="video-select">Current Music Selection</InputLabel>
