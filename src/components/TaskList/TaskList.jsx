@@ -41,7 +41,11 @@ export default function TaskList({
   ]
 
   return (
-    <List sx={{ width: '100%', maxWidth: "100vw", minWidth: "600px", bgcolor: 'background.paper', }}>
+    <List 
+      sx={{ width: '100%', maxWidth: "100vw", minWidth: "600px"}}
+      style={{maxHeight: "70vh", overflow: "auto"}}
+      className="listContainer"
+    >
       {tasks.map(task => 
         <ListItem key={task._id} alignItems="center"  divider>
           <Tooltip title={`created on ${task.createdAt.slice(0,10)} at ${task.createdAt.slice(12, 16)} utc`}>
