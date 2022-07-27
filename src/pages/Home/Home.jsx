@@ -18,6 +18,7 @@ import AddTaskForm from '../../components/AddTaskForm/AddTaskForm'
 import TaskList from '../../components/TaskList/TaskList'
 import DeleteAllDialog from "../../components/Home/DeleteAllDialog"
 import ReactYouTube from '../../components/ReactYouTube/ReactYouTube'
+import AddTipForm from '../../components/Tip/AddTipForm'
 
 const Home = ({ 
   user, 
@@ -27,7 +28,8 @@ const Home = ({
   handleEditTask,
   handleDeleteAll,
   handleSignupOrLogin,
-  handleLogout
+  handleLogout,
+  handleAddTip
 }) => {
 
   const [edit, setEdit] = useState(false)
@@ -103,16 +105,23 @@ const Home = ({
               </Tooltip>
             </Box>
           </Grid>
-          <Grid item md={3} >
-            <AddTaskForm 
-              formData={formData}
-              errors={errors}
-              edit={edit}
-              handleChange={handleChange}
-              handleSubmit={handleSubmit}
-              checkValidForm={checkValidForm}
-              handleClearForm={handleClearForm}
-            />
+          <Grid item container md={3}>
+            <Grid item md={12} >
+              <AddTaskForm 
+                formData={formData}
+                errors={errors}
+                edit={edit}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+                checkValidForm={checkValidForm}
+                handleClearForm={handleClearForm}
+              />
+            </Grid>
+            <Grid item md={12} >
+              <AddTipForm 
+                handleAddTip={handleAddTip}
+              />
+            </Grid>
           </Grid>
           <Grid item md={6}>
             <Paper sx={{p: 1.5}}>

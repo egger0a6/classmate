@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, useNavigate, Navigate } from 'react-router-dom'
-import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Home from './pages/Home/Home'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import * as authService from './services/authService'
 import * as profileService from "./services/profileService"
+import * as tipService from "./services/tipService"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const darkTheme = createTheme({
@@ -36,6 +36,7 @@ const App = () => {
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
   const [tasks, setTasks] = useState([])
+  const [tips, setTips] = useState([])
 
   useEffect(() => {
     if (user) {
@@ -77,6 +78,11 @@ const App = () => {
     setTasks([])
   }
 
+  const handleAddTip = async (newTipData) => {
+    const newTip = await tipService.addTip(newTipData)
+    setTips([...tips, newTip])
+  }
+
   return (
     <>
   <ThemeProvider theme={darkTheme}>
@@ -94,6 +100,7 @@ const App = () => {
               handleDeleteAll={handleDeleteAll}
               handleSignupOrLogin={handleSignupOrLogin}
               handleLogout={handleLogout}
+              handleAddTip={handleAddTip}
             />
           } 
         />
