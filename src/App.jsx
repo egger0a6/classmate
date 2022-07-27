@@ -102,6 +102,7 @@ const App = () => {
             <Home 
               user={user}
               tasks={tasks}
+              tips={tips}
               handleAddTask={handleAddTask}
               handleDeleteTask={handleDeleteTask}
               handleEditTask={handleEditTask}

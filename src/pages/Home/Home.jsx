@@ -19,10 +19,12 @@ import TaskList from '../../components/TaskList/TaskList'
 import DeleteAllDialog from "../../components/Home/DeleteAllDialog"
 import ReactYouTube from '../../components/ReactYouTube/ReactYouTube'
 import AddTipForm from '../../components/Tip/AddTipForm'
+import TipAccordion from "../../components/Tip/TipAccordion"
 
 const Home = ({ 
   user, 
-  tasks, 
+  tasks,
+  tips,
   handleAddTask, 
   handleDeleteTask,
   handleEditTask,
@@ -137,8 +139,11 @@ const Home = ({
             <Grid item md={12} sx={{height:"33vh"}}>
               <ReactYouTube videoId={"jfKfPfyJRdk"}/>
             </Grid>
-            <Grid item md={12} sx={{height: "33vh"}}>
+            <Grid item md={12} sx={{height: "10vh"}}>
               <Quote/>
+            </Grid>
+            <Grid item md={12} sx={{height: "25vh"}}>
+              <TipAccordion/>
             </Grid>
           </Grid>
         </Grid>
