@@ -20,8 +20,8 @@ const darkTheme = createTheme({
       paper: "rgba(27,40,56, .7)"
     },
     action: {
-      disabledBackground: "rgba(211, 47, 47, 0.3)",
-      disabled: 'rgba(211, 47, 47, 0.3)'
+      // disabledBackground: "rgba(211, 47, 47, 0.2)",
+      // disabled: 'rgba(211, 47, 47, 0.5)'
     }
   },
   typography: {

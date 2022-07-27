@@ -1,1 +1,10 @@
-.Mui-disabled { background-color: blue; }
+.form-container {
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

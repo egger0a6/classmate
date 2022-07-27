@@ -8,6 +8,8 @@ import MenuItem from "@mui/material/MenuItem";
 import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 
+import "./AddTaskForm.css"
+
 const AddTaskForm = ({
   formData, 
   handleChange, 
@@ -24,9 +26,9 @@ const AddTaskForm = ({
         component="form" 
         onSubmit={handleSubmit}
       >
-        <h4>Add Task</h4>
-        <Paper sx={{p: 1.5}}>
-          <FormControl>
+        <Paper sx={{p: 1.5}} className="input-container">
+          <h4>Add Task</h4>
+          <FormControl fullWidth sx={{m: 1}}>
             <TextField
               type="text"
               name="name"
@@ -36,7 +38,7 @@ const AddTaskForm = ({
               onChange={handleChange}
             />
           </FormControl>
-          <FormControl>
+          <FormControl fullWidth sx={{m: 1}}>
             <TextField
               type="text"
               name="content"
@@ -45,11 +47,10 @@ const AddTaskForm = ({
               value={formData.content}
               onChange={handleChange}
             />
-          </FormControl>
-          <FormControl>
+          </FormControl >
+          <FormControl fullWidth sx={{m: 1}}>
             <InputLabel id="priority-select">Priority</InputLabel>
             <Select
-              sx={{width: "200px"}}
               labelId="priority-select"
               id="priority-select"
               value={formData.priority}
@@ -66,6 +67,9 @@ const AddTaskForm = ({
           </FormControl>
           {edit ? 
             <Button 
+              sx={{m: 1}}
+              fullWidth
+              variant="contained"
               type="submit"
               disabled={!checkValidForm(formData, errors)}
             > 
@@ -73,14 +77,18 @@ const AddTaskForm = ({
             </Button>
             :
             <Button 
+              sx={{m: 1}}
+              fullWidth
               type="submit"
-              variant="outlined"
+              variant="contained"
               disabled={!checkValidForm(formData, errors)}
             > 
               Add Task 
             </Button>
           }
           <Button
+            sx={{m: 1, width: "33%"}}
+            variant="outlined"
             onClick={handleClearForm}
             disabled={!(formData.name || formData.priority || formData.content)}
           >

@@ -33,11 +33,11 @@ export default function TaskList({
 
   const avatarColors = [
     "", 
-    "rgba(249, 65, 68, 0.25)", 
-    "rgba(248, 150, 30, 0.25)", 
-    "rgba(249, 199, 79, 0.25)", 
-    "rgba(67, 170, 139, 0.25)", 
-    "rgba(17, 138, 178, 0.25)"
+    "rgba(249, 65, 68, 0.3)", 
+    "rgba(248, 150, 30, 0.3)", 
+    "rgba(249, 199, 79, 0.3)", 
+    "rgba(67, 170, 139, 0.3)", 
+    "rgba(17, 138, 178, 0.3)"
   ]
 
   return (
@@ -55,9 +55,9 @@ export default function TaskList({
           />
           <ListItemText
             primaryTypographyProps={{fontSize: '1.3rem', color: "#06bdff"}}
-            primary={task.priority} 
+            primary={task.priority}
           />
-          <Divider sx={{mr: 1, bgcolor: "grey.100" }} orientation="vertical" flexItem/>
+          <Divider sx={{mr: 2, bgcolor: "grey.100" }} orientation="vertical" flexItem/>
           <Timer sx={{}}/>
           <DeleteDialog 
             task={task} 

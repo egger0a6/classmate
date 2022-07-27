@@ -1,4 +1,5 @@
 import { Box } from '@mui/material';
+import { Paper } from "@mui/material";
 import React from 'react';
 import YouTube from 'react-youtube';
 
@@ -20,10 +21,13 @@ export default function ReactYouTube({videoId})
 
   return (
     <Box sx={{height: "100vh"}}>
-      <YouTube 
-        videoId={videoId} 
-        opts={opts} 
-        onReady={onReady} />
+      <Paper sx={{pl: 2, pt: 1, pb: 1}}>
+        <YouTube 
+          videoId={videoId} 
+          opts={opts} 
+          onReady={onReady} 
+        />
+      </Paper>
     </Box>
   );
 }
