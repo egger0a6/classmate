@@ -69,7 +69,7 @@ async function deleteAllTasks() {
   return res.json()
 }
 
-// collection of functions to handle form task validation
+// collection of functions to handle task form validation
 function validateFormCollection() {
   function validateFields(formData, errors, setErrors) {
     const tempErrors = {...errors}
