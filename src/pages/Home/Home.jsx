@@ -101,7 +101,7 @@ const Home = ({
               >
                 Welcome, {user ? user.name : 'friend'}
               </Typography>
-        <Grid item sm={1} alignSelf='end' sx={{m: -15, mb: .5}}><img src="./images/logo.png"/></Grid>
+        <Grid item sm={1} alignSelf='end' sx={{m: -15, mb: .5}}><img src="./images/logo.png" alt="classmate logo"/></Grid>
               <Tooltip title="Logout">
                 <Button onClick={handleLogout}>
                   <LogoutIcon sx={{color: "white"}}/>
