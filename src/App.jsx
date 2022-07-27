@@ -48,6 +48,13 @@ const App = () => {
     }
   }, [])
 
+  useEffect(() => {
+    const fetchAllTips = async () => {
+      const tipData = await tipService.getAll()
+      setTips(tipData)
+    }
+    fetchAllTips()
+  }, [])
 
   const handleLogout = () => {
     authService.logout()

@@ -14,6 +14,11 @@ async function addTip(tipData) {
   return res.json()
 }
 
+async function getAll() {
+  const res = await fetch(BASE_URL)
+  return res.json()
+}
+
 // collection of functions to handle tip form validation
 function validateFormCollection() {
   function validateFields(formData, errors, setErrors) {
@@ -43,5 +48,6 @@ function validateFormCollection() {
 
 export {
   addTip,
+  getAll,
   validateFormCollection
 }
