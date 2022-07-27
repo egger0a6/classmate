@@ -143,7 +143,7 @@ const Home = ({
               <Quote/>
             </Grid>
             <Grid item md={12} sx={{height: "25vh"}}>
-              <TipAccordion/>
+              <TipAccordion tips={tips}/>
             </Grid>
           </Grid>
         </Grid>
