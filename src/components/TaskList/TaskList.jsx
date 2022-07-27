@@ -43,7 +43,7 @@ export default function TaskList({
   return (
     <List sx={{ width: '100%', maxWidth: "100vw", bgcolor: 'background.paper', }}>
       {tasks.map(task => 
-        <ListItem key={task._id} alignItems="flex-start">
+        <ListItem key={task._id} alignItems="flex-start" divider>
           <ListItemAvatar>
             <Avatar sx={{background:`${avatarColors[task.priority]}`}}>
               <AssignmentIcon sx={{fill:`${prioColors[task.priority]}`}}/>
