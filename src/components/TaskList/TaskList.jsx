@@ -41,14 +41,16 @@ export default function TaskList({
   ]
 
   return (
-    <List sx={{ width: '100%', maxWidth: "100vw", bgcolor: 'background.paper', }}>
+    <List sx={{ width: '100%', maxWidth: "100vw", minWidth: "600px", bgcolor: 'background.paper', }}>
       {tasks.map(task => 
-        <ListItem key={task._id} alignItems="flex-start" divider>
-          <ListItemAvatar>
-            <Avatar sx={{background:`${avatarColors[task.priority]}`}}>
-              <AssignmentIcon sx={{fill:`${prioColors[task.priority]}`}}/>
-            </Avatar>
-          </ListItemAvatar>
+        <ListItem key={task._id} alignItems="center"  divider>
+          <Tooltip title={`created on ${task.createdAt.slice(0,10)} at ${task.createdAt.slice(12, 16)} utc`}>
+              <ListItemAvatar>
+              <Avatar sx={{background:`${avatarColors[task.priority]}`}}>
+                <AssignmentIcon sx={{fill:`${prioColors[task.priority]}`}}/>
+              </Avatar>
+            </ListItemAvatar>
+          </Tooltip>
           <ListItemText 
             primary={task.name} 
             secondary={task.content}
@@ -56,6 +58,8 @@ export default function TaskList({
           <ListItemText
             primaryTypographyProps={{fontSize: '1.3rem', color: "#06bdff"}}
             primary={task.priority}
+            align='right'
+            sx={{paddingRight: '1rem'}}
           />
           <Divider sx={{mr: 2, bgcolor: "grey.100" }} orientation="vertical" flexItem/>
           <Timer sx={{}}/>
