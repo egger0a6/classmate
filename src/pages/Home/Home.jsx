@@ -115,7 +115,7 @@ const Home = ({
             />
           </Grid>
           <Grid item md={6}>
-            <Paper>
+            <Paper sx={{p: 1.5}}>
               <DeleteAllDialog handleDeleteAll={handleDeleteAll}/>
               <TaskList 
                 tasks={tasks} 
