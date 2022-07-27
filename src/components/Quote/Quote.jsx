@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Typography } from "@mui/material";
+import { Paper } from "@mui/material";
 
 
 
@@ -226,7 +227,13 @@ const Quote =(() => {
 
 
   return (
-    <Typography>{quote.quote} ~ {quote.author}</Typography>
+    <Paper sx={{p: 2}}>
+      <Typography
+        sx={{fontStyle: "italic", fontSize: "1.2rem"}}
+      >
+        {quote.quote} ~ {quote.author}
+      </Typography>
+    </Paper>
   )
 })
 

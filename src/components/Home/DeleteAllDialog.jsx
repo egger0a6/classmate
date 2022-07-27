@@ -23,6 +23,7 @@ export default function DeleteAllDialog({handleDeleteAll}) {
   return (
     <div>
       <Button
+        sx={{fontSize: "1rem"}}
         variant="text"
         onClick={handleClickOpen}
         color="error"

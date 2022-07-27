@@ -11,6 +11,7 @@ import Tooltip from '@mui/material/Tooltip';
 import Button from '@mui/material/Button';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Box from "@mui/material/Box";
+import { Paper } from "@mui/material";
 
 // Components
 import AddTaskForm from '../../components/AddTaskForm/AddTaskForm'
@@ -87,7 +88,7 @@ const Home = ({
         <Grid container spacing={4} sx={{
           mt: 5,
         }}>
-          <Grid item md={12} className={styles.header} sx={{mb: 4}}>
+          <Grid item md={12} sx={{mb: 4}}>
             <Box className={styles.header}>
               <Typography 
                 variant='h1' 
@@ -114,12 +115,14 @@ const Home = ({
             />
           </Grid>
           <Grid item md={6}>
-            <DeleteAllDialog handleDeleteAll={handleDeleteAll}/>
-            <TaskList 
-              tasks={tasks} 
-              handleDeleteTask={handleDeleteTask}
-              handleEditTaskButton={handleEditTaskButton}
-            />
+            <Paper>
+              <DeleteAllDialog handleDeleteAll={handleDeleteAll}/>
+              <TaskList 
+                tasks={tasks} 
+                handleDeleteTask={handleDeleteTask}
+                handleEditTaskButton={handleEditTaskButton}
+              />
+            </Paper>
           </Grid>
           <Grid item container md={3}>
             <Grid item md={12} sx={{height:"33vh"}}>
