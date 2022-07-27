@@ -17,7 +17,7 @@ Users are able to:
 [Click here to get to the Back-End Github](https://github.com/egger0a6/classmate-api)
 
 ### Website Preview
-![Landing Page](public/hackathonscreenshot.png)
+![Landing Page](../public/hackathonscreenshot.png)
 
 ## Technologies Used:
   ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
