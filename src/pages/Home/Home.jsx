@@ -81,12 +81,10 @@ const Home = ({
   }
 
   return (
-    <Box>
+    <Box sx={{mr: 4, ml: 4}}>
       {user ? 
         <Grid container spacing={4} sx={{
           mt: 5,
-          // bgcolor: 'background.paper', 
-          // color: 'primary'
         }}>
           <Grid item md={12} className={styles.header} sx={{mb: 4}}>
             <Box className={styles.header}>
@@ -103,24 +101,24 @@ const Home = ({
               </Tooltip>
             </Box>
           </Grid>
-          <Grid item md={3}>
-              <AddTaskForm 
-                formData={formData}
-                errors={errors}
-                edit={edit}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-                checkValidForm={checkValidForm}
-                handleClearForm={handleClearForm}
-              />
+          <Grid item md={3} >
+            <AddTaskForm 
+              formData={formData}
+              errors={errors}
+              edit={edit}
+              handleChange={handleChange}
+              handleSubmit={handleSubmit}
+              checkValidForm={checkValidForm}
+              handleClearForm={handleClearForm}
+            />
           </Grid>
           <Grid item md={6}>
-              <DeleteAllDialog handleDeleteAll={handleDeleteAll}/>
-              <TaskList 
-                tasks={tasks} 
-                handleDeleteTask={handleDeleteTask}
-                handleEditTaskButton={handleEditTaskButton}
-              />
+            <DeleteAllDialog handleDeleteAll={handleDeleteAll}/>
+            <TaskList 
+              tasks={tasks} 
+              handleDeleteTask={handleDeleteTask}
+              handleEditTaskButton={handleEditTaskButton}
+            />
           </Grid>
           <Grid item container md={3}>
             <Grid item md={12} sx={{height:"33vh"}}>
