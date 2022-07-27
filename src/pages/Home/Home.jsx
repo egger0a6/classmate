@@ -93,14 +93,15 @@ const Home = ({
         <Grid container spacing={4} sx={{
           mt: 5,
         }}>
-          <Grid item md={12} sx={{mb: 4}}>
+          <Grid item md={11} sx={{mb: 4}}>
             <Box className={styles.header}>
               <Typography 
                 variant='h1' 
-                sx={{color: "white", fontStyle: "italic", fontWeight: 700}}
+                sx={{color: "white", fontStyle: "italic", fontWeight: 700, justifyContent: 'between'}}
               >
                 Welcome, {user ? user.name : 'friend'}
               </Typography>
+        <Grid item sm={1} alignSelf='end' sx={{m: -15, mb: .5}}><img src="./images/logo.png"/></Grid>
               <Tooltip title="Logout">
                 <Button onClick={handleLogout}>
                   <LogoutIcon sx={{color: "white"}}/>
