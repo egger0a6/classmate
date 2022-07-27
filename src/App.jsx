@@ -46,7 +46,7 @@ const App = () => {
       }
       fetchProfileData()
     }
-  }, [])
+  }, [user])
 
   useEffect(() => {
     const fetchAllTips = async () => {

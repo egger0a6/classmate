@@ -39,48 +39,53 @@ export default function TaskList({
     "rgba(67, 170, 139, 0.3)", 
     "rgba(17, 138, 178, 0.3)"
   ]
-
   return (
-    <List 
-      sx={{ width: '100%', maxWidth: "100vw", minWidth: "600px"}}
-      style={{maxHeight: "70vh", overflow: "auto"}}
-      className="listContainer"
-    >
-      {tasks.map(task => 
-        <ListItem key={task._id} alignItems="center"  divider>
-          <Tooltip title={`created on ${task.createdAt.slice(0,10)} at ${task.createdAt.slice(12, 16)} utc`}>
-              <ListItemAvatar>
-              <Avatar sx={{background:`${avatarColors[task.priority]}`}}>
-                <AssignmentIcon sx={{fill:`${prioColors[task.priority]}`}}/>
-              </Avatar>
-            </ListItemAvatar>
-          </Tooltip>
-          <ListItemText 
-            primaryTypographyProps={{fontSize: '1.2rem', fontWeight: "bold"}}
-            primary={task.name} 
-            secondary={task.content}
-          />
-          <ListItemText
-            primaryTypographyProps={{fontSize: '1.3rem', color: "#06bdff"}}
-            primary={task.priority}
-            align='right'
-            sx={{paddingRight: '1rem'}}
-          />
-          <Divider sx={{mr: 2, bgcolor: "grey.100" }} orientation="vertical" flexItem/>
-          <Timer sx={{}}/>
-          <DeleteDialog 
-            task={task} 
-            handleDeleteTask={handleDeleteTask}
-          />
-          <Tooltip title="Edit">
-            <Button
-              onClick={() => handleEditTaskButton(task._id)}
-            >
-              <EditIcon/>
-            </Button>
-          </Tooltip>
-        </ListItem>
-      )}
-    </List>
+    <>
+      {tasks.length ?
+        <List 
+          sx={{ width: '100%', maxWidth: "100vw", minWidth: "600px"}}
+          style={{maxHeight: "70vh", overflow: "auto"}}
+          className="listContainer"
+        >
+          {tasks.map(task => 
+            <ListItem key={task._id} alignItems="center"  divider>
+              <Tooltip title={`created on ${task.createdAt.slice(0,10)} at ${task.createdAt.slice(12, 16)} utc`}>
+                  <ListItemAvatar>
+                  <Avatar sx={{background:`${avatarColors[task.priority]}`}}>
+                    <AssignmentIcon sx={{fill:`${prioColors[task.priority]}`}}/>
+                  </Avatar>
+                </ListItemAvatar>
+              </Tooltip>
+              <ListItemText 
+                primaryTypographyProps={{fontSize: '1.2rem', fontWeight: "bold"}}
+                primary={task.name} 
+                secondary={task.content}
+              />
+              <ListItemText
+                primaryTypographyProps={{fontSize: '1.3rem', color: "#06bdff"}}
+                primary={task.priority}
+                align='right'
+                sx={{paddingRight: '1rem'}}
+              />
+              <Divider sx={{mr: 2, bgcolor: "grey.100" }} orientation="vertical" flexItem/>
+              <Timer sx={{}}/>
+              <DeleteDialog 
+                task={task} 
+                handleDeleteTask={handleDeleteTask}
+              />
+              <Tooltip title="Edit">
+                <Button
+                  onClick={() => handleEditTaskButton(task._id)}
+                >
+                  <EditIcon/>
+                </Button>
+              </Tooltip>
+            </ListItem>
+          )}
+        </List>
+        :
+        <h2>Loading...</h2>
+      }
+    </>
   );
 }
