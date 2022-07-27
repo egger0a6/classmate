@@ -48,6 +48,7 @@ const App = () => {
     }
   }, [])
 
+
   const handleLogout = () => {
     authService.logout()
     setUser(null)

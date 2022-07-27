@@ -61,6 +61,8 @@ const AddTipForm = ({handleAddTip}) => {
               type="text"
               name="notes"
               label="Notes"
+              multiline
+              rows={3}
               autoComplete="off"
               value={formData.notes}
               onChange={handleChange}
