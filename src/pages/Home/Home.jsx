@@ -92,7 +92,7 @@ const Home = ({
             <Box className={styles.header}>
               <Typography 
                 variant='h1' 
-                sx={{color: "black", fontStyle: "italic", fontWeight: 700}}
+                sx={{color: "white", fontStyle: "italic", fontWeight: 700}}
               >
                 Welcome, {user ? user.name : 'friend'}
               </Typography>
