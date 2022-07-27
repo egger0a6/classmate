@@ -52,6 +52,7 @@ export default function TaskList({
             </ListItemAvatar>
           </Tooltip>
           <ListItemText 
+            primaryTypographyProps={{fontSize: '1.2rem', fontWeight: "bold"}}
             primary={task.name} 
             secondary={task.content}
           />
