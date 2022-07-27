@@ -1,4 +1,5 @@
 import * as React from 'react';
+import "./TaskList.css"
 
 // MUI Components
 import List from '@mui/material/List';
@@ -42,7 +43,7 @@ export default function TaskList({
   return (
     <List sx={{ width: '100%', maxWidth: "100vw", bgcolor: 'background.paper', }}>
       {tasks.map(task => 
-        <ListItem key={task._id}>
+        <ListItem key={task._id} alignItems="flex-start">
           <ListItemAvatar>
             <Avatar sx={{background:`${avatarColors[task.priority]}`}}>
               <AssignmentIcon sx={{fill:`${prioColors[task.priority]}`}}/>
@@ -52,10 +53,11 @@ export default function TaskList({
             primary={task.name} 
             secondary={task.content}
           />
-          <Divider sx={{ height: 28, m: 0.5, bgcolor: "grey.100" }} orientation="vertical" />
-          <ListItemText 
+          <ListItemText
+            primaryTypographyProps={{fontSize: '1.3rem', color: "#06bdff"}}
             primary={task.priority} 
           />
+          <Divider sx={{mr: 1, bgcolor: "grey.100" }} orientation="vertical" flexItem/>
           <Timer sx={{}}/>
           <DeleteDialog 
             task={task} 

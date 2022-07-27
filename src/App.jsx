@@ -17,7 +17,7 @@ const darkTheme = createTheme({
       secondary: "#ffffff"
     },
     background: {
-      paper: "rgba(8,81,156, .75)"
+      paper: "rgba(27,40,56, .7)"
     },
     action: {
       disabledBackground: "rgba(211, 47, 47, 0.3)",
