@@ -19,6 +19,7 @@ const bull = (
 );
 
 export default function BasicCard({tips, handleDeleteTip}) {
+  console.log(tips)
   return (
     <Box 
       style={{maxHeight: "15vh", overflow: "auto"}}
