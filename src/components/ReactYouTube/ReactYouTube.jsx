@@ -57,7 +57,7 @@ export default function ReactYouTube({videoId})
 
   const onReady = (evt) => {
     // access to player in all event handlers via event.target
-    evt.target.stopVideo();
+    evt.target.pauseVideo();
   }
 
   const opts = {
@@ -76,7 +76,6 @@ export default function ReactYouTube({videoId})
           <YouTube 
             videoId={selectData.videoId ? selectData.videoId : videoId} 
             opts={opts} 
-            onStateChange={onReady}
           />
           <FormControl fullWidth sx={{m: 2}}>
             <InputLabel id="video-select">Current Music Selection</InputLabel>
