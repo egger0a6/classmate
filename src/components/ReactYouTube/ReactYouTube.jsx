@@ -71,8 +71,8 @@ export default function ReactYouTube({videoId})
 
   return (
     <Box sx={{}}>
-      <Paper className='container' sx={{p: 2}}>
-        <Grid container>
+      <Paper sx={{p: 2}}>
+        <Grid container className='container'>
           <YouTube 
             videoId={selectData.videoId ? selectData.videoId : videoId} 
             opts={opts} 
