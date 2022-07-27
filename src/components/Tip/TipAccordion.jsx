@@ -16,7 +16,7 @@ import FormControl from "@mui/material/FormControl";
 // Components
 import TipList from "./TipList"
 
-export default function CommentAccordion({ tips }) {
+export default function CommentAccordion({ tips, handleDeleteTip }) {
   const categories = [
     "Unit 1",
     "Unit 2",
@@ -59,7 +59,10 @@ export default function CommentAccordion({ tips }) {
           <Typography>GAE-SEI: Tips, Tricks, and Helpful Notes</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          {<TipList tips={tips.filter(tip => tip.category === category)} />}
+          {<TipList 
+            tips={tips.filter(tip => tip.category === category)}
+            handleDeleteTip={handleDeleteTip} 
+          />}
         </AccordionDetails>
       </Accordion>
     </Paper>

@@ -31,7 +31,8 @@ const Home = ({
   handleDeleteAll,
   handleSignupOrLogin,
   handleLogout,
-  handleAddTip
+  handleAddTip,
+  handleDeleteTip
 }) => {
 
   const [edit, setEdit] = useState(false)
@@ -143,7 +144,10 @@ const Home = ({
               <Quote/>
             </Grid>
             <Grid item md={12} sx={{height: "25vh"}}>
-              <TipAccordion tips={tips}/>
+              <TipAccordion 
+                tips={tips} 
+                handleDeleteTip={handleDeleteTip}
+              />
             </Grid>
           </Grid>
         </Grid>

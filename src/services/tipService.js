@@ -19,6 +19,16 @@ async function getAll() {
   return res.json()
 }
 
+async function deleteTip(id) {
+  const res = await fetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
+  return res.json()
+} 
+
 // collection of functions to handle tip form validation
 function validateFormCollection() {
   function validateFields(formData, errors, setErrors) {
@@ -49,5 +59,6 @@ function validateFormCollection() {
 export {
   addTip,
   getAll,
+  deleteTip,
   validateFormCollection
 }

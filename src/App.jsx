@@ -91,6 +91,11 @@ const App = () => {
     setTips([...tips, newTip])
   }
 
+  const handleDeleteTip = async (id) => {
+    const deletedTip = await tipService.deleteTip(id)
+    setTips(tips.filter(tip => tip._id !== deletedTip._id))
+  }
+
   return (
     <>
   <ThemeProvider theme={darkTheme}>
@@ -110,6 +115,7 @@ const App = () => {
               handleSignupOrLogin={handleSignupOrLogin}
               handleLogout={handleLogout}
               handleAddTip={handleAddTip}
+              handleDeleteTip={handleDeleteTip}
             />
           } 
         />
