@@ -41,7 +41,7 @@ const AddTipForm = ({handleAddTip}) => {
     const isValid = Object.values(errors).every((val) => val === "") &&
       checkValidForm(formData, errors)
     if (isValid) handleAddTip(formData)
-    setFormData({name: "", content: "", priority: ""})
+    setFormData({notes: "", category: ""})
     evt.target.reset()
   }
 

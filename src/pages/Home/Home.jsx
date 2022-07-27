@@ -145,6 +145,7 @@ const Home = ({
             </Grid>
             <Grid item md={12} sx={{height: "25vh"}}>
               <TipAccordion 
+                user={user}
                 tips={tips} 
                 handleDeleteTip={handleDeleteTip}
               />

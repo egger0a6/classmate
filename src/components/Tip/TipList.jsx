@@ -18,7 +18,7 @@ const bull = (
   </Box>
 );
 
-export default function BasicCard({tips, handleDeleteTip}) {
+export default function BasicCard({tips, user, handleDeleteTip}) {
   console.log(tips)
   return (
     <Box 
@@ -31,9 +31,13 @@ export default function BasicCard({tips, handleDeleteTip}) {
             <Typography sx={{fontSize: "1.1rem"}}>
               {bull}{tip.notes}
             </Typography>
-            <Button onClick={handleDeleteTip(tip._id)}>
-              <HighlightOffIcon sx={{color: "rgba(211, 47, 47, 0.7)"}}/>
-            </Button>
+            {user.profile === tip?.owner._id ? 
+              <Button onClick={() => handleDeleteTip(tip._id)}>
+                <HighlightOffIcon sx={{color: "rgba(211, 47, 47, 0.7)"}}/>
+              </Button>
+              :
+              <></>
+            }
           </CardContent>
         </Card>
       )}
