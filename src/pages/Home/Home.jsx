@@ -78,6 +78,7 @@ const Home = ({
 
   const handleClearForm = () => {
     setFormData({name: "", content: "", priority: ""})
+    setEdit(false)
   }
 
   return (

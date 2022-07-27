@@ -55,9 +55,9 @@ export default function TaskList({
           />
           <ListItemText
             primaryTypographyProps={{fontSize: '1.3rem', color: "#06bdff"}}
-            primary={task.priority} 
+            primary={task.priority}
           />
-          <Divider sx={{mr: 1, bgcolor: "grey.100" }} orientation="vertical" flexItem/>
+          <Divider sx={{mr: 2, bgcolor: "grey.100" }} orientation="vertical" flexItem/>
           <Timer sx={{}}/>
           <DeleteDialog 
             task={task} 
