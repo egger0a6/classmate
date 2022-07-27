@@ -50,6 +50,7 @@ export default function TaskList({
             </Avatar>
           </ListItemAvatar>
           <ListItemText 
+            primaryTypographyProps={{fontSize: '1.2rem', fontWeight: "bold"}}
             primary={task.name} 
             secondary={task.content}
           />

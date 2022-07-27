@@ -3,6 +3,8 @@ import { Paper } from "@mui/material";
 import React from 'react';
 import YouTube from 'react-youtube';
 
+import "./ReactYouTube.css"
+
 export default function ReactYouTube({videoId}) 
 {
   const onReady = (evt) => {
@@ -21,7 +23,7 @@ export default function ReactYouTube({videoId})
 
   return (
     <Box sx={{height: "100vh"}}>
-      <Paper sx={{pl: 2, pt: 1, pb: 1}}>
+      <Paper className='container' sx={{p: 2}}>
         <YouTube 
           videoId={videoId} 
           opts={opts} 
