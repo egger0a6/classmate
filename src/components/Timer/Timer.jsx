@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Stack from '@mui/material/Stack';
 import CircularProgress from '@mui/material/CircularProgress';
+import Button from '@mui/material/Button';
 
 export default function Timer() {
   const minutesDuration = 60
@@ -35,8 +36,8 @@ export default function Timer() {
 
   return (
     <div className="Timer">
-      <button onClick={start}>{buttonText}</button>
-      <div>{(secondsLeft / 60).toFixed(2)} Minutes Left | <CircularProgress variant="determinate" value={secondsLeft} /></div>
+      <Button onClick={start} variant="outlined" size="small">{buttonText}</Button>
+      <div>Take a break in {(secondsLeft / 60).toFixed(2)}  <CircularProgress variant="determinate" value={secondsLeft} size={30} sx={{paddingX: '2rem'}} /></div>
     </div>
   );
 }
