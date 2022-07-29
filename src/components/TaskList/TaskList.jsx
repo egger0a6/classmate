@@ -84,7 +84,7 @@ export default function TaskList({
           )}
         </List>
         :
-        <h2>Loading...</h2>
+        <h2>No tasks</h2>
       }
     </>
   );
